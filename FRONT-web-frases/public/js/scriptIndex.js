@@ -55,4 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
     addQuoteBtn.addEventListener('click', () => {
         window.location.href = 'add-quote.html';
     });
+    
+    // Configurar botón para ver todas las frases
+    const listQuotesBtn = document.getElementById('list-quotes-btn');
+    listQuotesBtn.addEventListener('click', () => {
+        window.location.href = 'all-quotes.html';
+    });
 });

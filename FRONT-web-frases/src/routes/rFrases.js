@@ -16,6 +16,7 @@ router.get('/', (req, res) => {
 // Ruta para la página de crear frases
 router.get('/crear', (req, res) => {
   res.sendFile(join(__dirname, '../../public/crear.html'));
+  
 });
 
 // Ruta para la página de ver todas las frases

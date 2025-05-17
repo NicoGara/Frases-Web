@@ -1,32 +1,18 @@
 import express from 'express';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
-import router from './src/routes/rFrases.js';
+import path from 'path';
+import routes from './src/routes/rFrases.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-// Inicializar express
 const app = express();
+const __dirname = path.resolve();    // para que `path.join` funcione con ES Modules
 const PORT = process.env.PORT || 3001;
 
-// Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// 1. Sirve archivos estáticos desde /public
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Servir archivos estáticos
-app.use(express.static(join(__dirname, 'public')));
+// 2. Tus rutas de API
+app.use( routes);
 
-// Rutas
-app.use('/api', router);
 
-// Manejo de errores básico
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('¡Algo salió mal!');
-});
-
-// Iniciar servidor
 app.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
 });

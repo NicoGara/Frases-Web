@@ -1,0 +1,98 @@
+:root {
+    --text-color: #2c3e50;
+    --background-color: #f9f9f9;
+    --button-color: #34495e;
+    --button-hover: #2c3e50;
+    --input-border: #bdc3c7;
+    --success-color: #27ae60;
+    --error-color: #e74c3c;
+}
+
+body {
+    font-family: 'Caveat', cursive;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 700px;
+    padding: 2rem;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    background-color: white;
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.btn-container {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    font-family: 'Caveat', cursive;
+    background-color: transparent;
+    color: var(--button-color);
+    border: 2px solid var(--button-color);
+    border-radius: 30px;
+    padding: 0.7rem 2rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: var(--button-hover);
+    color: white;
+}
+
+.status-message {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.success {
+    background-color: rgba(39, 174, 96, 0.1);
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+}
+
+.error {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+}

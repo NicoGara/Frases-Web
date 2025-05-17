@@ -1,0 +1,133 @@
+:root {
+    --text-color: #2c3e50;
+    --background-color: #f9f9f9;
+    --button-color: #34495e;
+    --button-hover: #2c3e50;
+    --card-background: #ffffff;
+    --card-border: #ecf0f1;
+}
+
+body {
+    font-family: 'Caveat', cursive;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px 0;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    font-family: 'Caveat', cursive;
+    background-color: transparent;
+    color: var(--button-color);
+    border: 1px solid var(--button-color);
+    border-radius: 20px;
+    padding: 0.3rem 0.8rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--button-hover);
+    color: white;
+}
+
+.quotes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.quote-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quote-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.quote-content {
+    font-size: 1.8rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.quote-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quote-author {
+    font-size: 1.3rem;
+}
+
+.quote-date {
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.spinner {
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border-left-color: var(--button-color);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 2rem;
+}
+
+.no-quotes {
+    text-align: center;
+    font-size: 1.8rem;
+    padding: 3rem 0;
+    color: #7f8c8d;
+}
+
+.page-heading {
+    font-size: 2rem;
+    margin-right: auto;
+}

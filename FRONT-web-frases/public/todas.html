@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frases</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Todas las Frases</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Caveat:wght@400;700&family=Indie+Flower&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/styleIndex.css">
+    <link rel="stylesheet" href="/css/todas.css"> </link>
 </head>
 <body>
     <div class="container">
-        <div id="quote-container" class="quote-container">
+        <div class="header-controls">
+            <div class="page-heading">Todas las frases</div>
+            <div class="buttons">
+                <button class="btn" id="home-btn">Volver</button>
+                <button class="btn" id="add-btn">+</button>
+            </div>
+        </div>
+
+        <div id="quotes-container" class="quotes-list">
             <div class="loading">
                 <div class="spinner"></div>
             </div>
         </div>
-
-        <a href="/crear" class="btn" id="add-quote-btn" title="Añadir frase">+</a>
-        <a href="/todas" class="btn list-btn" id="list-quotes-btn" title="Ver todas las frases">≡</a>
     </div>
 
-    <script src="/js/scriptIndex.js"></script>
+    <script src="/js/todas.js"></script>
 </body>
 </html>

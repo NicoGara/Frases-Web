@@ -57,13 +57,21 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     position: absolute;
-    bottom: 10px;
-    right: 10px;
 }
 
 .btn:hover {
     background-color: var(--button-hover);
     color: white;
+}
+
+#add-quote-btn {
+    bottom: 10px;
+    right: 10px;
+}
+
+.list-btn {
+    bottom: 10px;
+    right: 50px;
 }
 
 .loading {
