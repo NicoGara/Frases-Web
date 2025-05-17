@@ -7,10 +7,5 @@ API-web-frases/data/
 # Ignorar la carpeta node_modules
 FRONTEND-web-frases/node_modules/
 
-# Ignorar la carpeta public
-FRONTEND-web-frases/public/
-
-# Ignorar la carpeta src
-FRONTEND-web-frases/src/
 
 
