@@ -1,0 +1,97 @@
+:root {
+    --text-color: #2c3e50;
+    --background-color: #f9f9f9;
+    --button-color: #34495e;
+    --button-hover: #2c3e50;
+}
+
+body {
+    font-family: 'Caveat', cursive;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 700px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.quote-container {
+    margin-bottom: 3rem;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quote-content {
+    font-size: 2.2rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+}
+
+.quote-author {
+    font-size: 1.5rem;
+    text-align: right;
+    margin-top: 1rem;
+}
+
+.btn {
+    font-family: 'Caveat', cursive;
+    background-color: transparent;
+    color: var(--button-color);
+    border: 1px solid var(--button-color);
+    border-radius: 20px;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btn:hover {
+    background-color: var(--button-hover);
+    color: white;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.spinner {
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border-left-color: var(--button-color);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 1.5rem;
+}

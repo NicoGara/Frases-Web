@@ -1,0 +1,20 @@
+# Ignorar la carpeta node_modules
+API-web-frases/node_modules/
+
+# Ignorar la carpeta data
+API-web-frases/data/
+
+# Ignorar la carpeta public
+API-web-frases/public/
+
+# Ignorar la carpeta src
+API-web-frases/src/
+
+
+FRONTEND-web-frases/node_modules/
+
+FRONTEND-web-frases/public/
+
+FRONTEND-web-frases/src/
+
+
