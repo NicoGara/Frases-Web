@@ -5,7 +5,8 @@ API-web-frases/node_modules/
 API-web-frases/data/
 
 # Ignorar la carpeta node_modules
-FRONTEND-web-frases/node_modules/
+FRONT-web-frases/node_modules/
+
 
 
 
