@@ -131,3 +131,7 @@ body {
     font-size: 2rem;
     margin-right: auto;
 }
+
+a{
+    text-decoration: none;
+}
