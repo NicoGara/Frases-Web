@@ -62,23 +62,23 @@ const crearValoresParaPruebas = async () => {
         // Inserta los usuarios
         await pool.query(`
             INSERT INTO usuarios(
-                usuario_id, nombre_usuario, correo, password, cel
+                usuario_id, nombre_usuario, correo, password
             )
             VALUES
-            (0,'nico','nicolasgaravaglia@hotmail.com','pepefefe',1136393954),
-            (0,'pepe','pepe@hotmail.com','torta1',1136350954),
-            (0,'jose','jose@hotmail.com','copaportatil',1145350954);
+            (0,'nico','nicolasgaravaglia@hotmail.com', AES_ENCRYPT('1234567', 'super_llave')),
+            (0,'pepe','pepe@hotmail.com', AES_ENCRYPT('0000000', 'super_llave')),
+            (0,'jose','jose@hotmail.com', AES_ENCRYPT('papapepeprop', 'super_llave'));
         `);
 
         // Inserta las frases
         await pool.query(`
             INSERT INTO frases(
-                frase_id, contenido, autor, fecha_publicacion, usuario
+                frase_id, contenido, autor, fuente, fecha_publicacion, usuario
             )
             VALUES 
-            (0,'Nosotros tenemos que ser el cambio que queremos ver en el mundo','Mahatma Gandhi',now(),1),
-            (0,'La vida es muy peligrosa. No por las personas que hacen el mal, sino por las que se sientan a ver lo que pasa.','Albert Einstein',now(),1),
-            (0,'Ojo por ojo y todo el mundo acabará ciego','Mahatma Gandhi',now(),1);
+            (0,'Nosotros tenemos que ser el cambio que queremos ver en el mundo','Mahatma Gandhi','Web' ,now(),1),
+            (0,'La vida es muy peligrosa. No por las personas que hacen el mal, sino por las que se sientan a ver lo que pasa.','Albert Einstein','Web' ,now(),1),
+            (0,'Ojo por ojo y todo el mundo acabará ciego','Mahatma Gandhi','Web' ,now(),1);
         `);
 
         console.log("Valores de prueba creados exitosamente.");
@@ -88,4 +88,4 @@ const crearValoresParaPruebas = async () => {
     }
 };
 
-export default mFrases;
+export default mFrases; 
