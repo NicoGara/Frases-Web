@@ -1,51 +1,9 @@
 import  pool  from "../config/db.js";
 
-const mFrases={
-    getAll: async () => {
-        try {
 
-            const cantidad = await cantFrases();
-            if (cantidad === 0) {
-                console.log("La tabla 'frases' está vacía. Creando valores de prueba...");
-                await crearValoresParaPruebas();
-            }
+let fraseDelDia;
 
-            const [results]=await pool.query("SELECT * FROM frases");
-            
-            return results
-
-            
-        } catch (err) {
-            throw {status:500,message:"Error al cargar las frases"};
-        }
-    },
-    getOne: async () => {
-        try {
-            // Verifica si la tabla está vacía
-            const cantidad = await cantFrases();
-            if (cantidad === 0) {
-                console.log("La tabla 'frases' está vacía. Creando valores de prueba...");
-                await crearValoresParaPruebas();
-            }
-
-            // Selecciona una frase aleatoria
-            const nuevaCantidad = await cantFrases(); // Recalcula la cantidad después de insertar
-            const [results] = await pool.query(
-                "SELECT * FROM frases WHERE frase_id=?",
-                [Math.ceil(Math.random() * nuevaCantidad)]
-            );
-
-            return results;
-        } catch (err) {
-            throw { status: 500, message: "Error al cargar la frase" };
-        }
-    },
-    create: async ()=>{},
-    update: async ()=>{},
-    delete: async ()=>{}
-}
-
-
+// Esta funcion devuelve la cantidad de frases (devuelve un numero)
 const cantFrases=async()=>{
     try {
         const [results]=await pool.query("SELECT COUNT(*) FROM frases");
@@ -55,8 +13,7 @@ const cantFrases=async()=>{
     }
 }
 
-
-
+// borrar esta funcion una vez que este ok la base de datos 
 const crearValoresParaPruebas = async () => {
     try {
         // Inserta los usuarios
@@ -86,6 +43,78 @@ const crearValoresParaPruebas = async () => {
         console.error("Error al crear valores de prueba:", err);
         throw { status: 500, message: "Error al crear valores de prueba" };
     }
+
+    
 };
+
+// Esta funcion es la encargada de traer una frase al alzar cada vez que se ejecuta y guararla en la variable fraseDelDia
+const obtFraseDelDia=async()=>{
+    try {
+        const nuevaCantidad = await cantFrases();
+        const [results]=await pool.query("SELECT * FROM frases WHERE frase_id=?",[Math.ceil(Math.random() * nuevaCantidad)]);
+        fraseDelDia=results
+    } catch (err) {
+        throw {status:500,message:"Error al cargar la frase"};
+    }
+};
+
+obtFraseDelDia()
+
+// Esta funcion actualiza la frase guardada en la variable fraseDelDia cada 24 hs
+function ejecutarCada24Horas() {
+    obtFraseDelDia()    
+    setTimeout(ejecutarCada24Horas, 24 * 60 * 60 * 1000);
+}
+
+ejecutarCada24Horas()
+
+
+
+
+const mFrases={
+    getAll: async () => {
+        try {
+
+            const cantidad = await cantFrases();
+            if (cantidad === 0) {
+                console.log("La tabla 'frases' está vacía. Creando valores de prueba...");
+                await crearValoresParaPruebas();
+            }
+
+            const [results]=await pool.query("SELECT * FROM frases");
+            
+            return results
+
+            
+        } catch (err) {
+            throw {status:500,message:"Error al cargar las frases"};
+        }
+    },
+    getOne: async () => {
+        try {
+            // Verifica si la tabla está vacía. Si lo esta corre el codigo para cargar los valores por defecto (esto hay que borrarlo cuando este bien la base de datos)
+            const cantidad = await cantFrases();
+            if (cantidad === 0) {
+                console.log("La tabla 'frases' está vacía. Creando valores de prueba...");
+                await crearValoresParaPruebas();
+            }
+
+            return fraseDelDia;
+        } catch (err) {
+            throw { status: 500, message: "Error al cargar la frase" };
+        }
+    },
+    create: async ()=>{},
+    update: async ()=>{},
+    delete: async ()=>{}
+}
+
+
+
+
+
+
+
+
 
 export default mFrases; 

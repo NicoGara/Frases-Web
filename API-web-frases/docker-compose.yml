@@ -8,7 +8,7 @@ services:
       MYSQL_DATABASE: frases_sql
     volumes:
       - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql  # Archivo de inicialización
-      - ./data/mysql:/var/lib/mysql  # Volumen persistente para los datos
+      - db_data:/var/lib/mysql  # Volumen persistente para los datos
     ports:
       - "3307:3306"
 
