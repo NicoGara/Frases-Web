@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Caveat:wght@400;700&family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/inicio.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Bienvenido</h1>
+            <p>Inicia sesión para continuar</p>
+        </div>
+
+        <div id="status-container"></div>
+
+        <form id="login-form" action="js/inicio.js" method="POST">
+            <div class="form-group">
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" name="usuario" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="btn-container">
+                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/inicio.js"></script>
+</body>
+</html>
