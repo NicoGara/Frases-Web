@@ -2,6 +2,8 @@ import express from 'express';
 import path from 'path';
 import routes from './src/routes/rFrases.js';
 import rInicio from './src/routes/rInicio.js';
+import cors from 'cors';
+
 
 
 const app = express();
@@ -13,6 +15,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use(express.json());
+app.use(cors({
+  origin: 'http://localhost:3001',
+  credentials: true
+}));
 
 // 2. Tus rutas de API
 app.use( routes); 

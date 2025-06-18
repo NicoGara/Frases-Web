@@ -9,7 +9,7 @@ const mUser = {
       );
     //   FALTA LA LLAVE: Cambiar por la llave de cifrado real
       const [password] = await pool.query(
-        "SELECT CAST(AES_DECRYPT(password,'FALTA LA LLAVE') AS CHAR) AS col_nueva FROM usuarios WHERE nombre_usuario = ?",
+        "SELECT CAST(AES_DECRYPT(password,'super_llave') AS CHAR) AS col_nueva FROM usuarios WHERE nombre_usuario = ?",
         [usuario]
       );
       return { results, password };

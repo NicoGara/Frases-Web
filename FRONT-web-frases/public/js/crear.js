@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const backBtn = document.getElementById('back-btn');
     const statusContainer = document.getElementById('status-container');
 
+
+    if (!localStorage.getItem('username') || !localStorage.getItem('password')) {
+        window.location.href = 'http://localhost:3001/login';
+    }
+
     // Función para mostrar mensajes de estado
     function showStatusMessage(message, type) {
         statusContainer.innerHTML = `

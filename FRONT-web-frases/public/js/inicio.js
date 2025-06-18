@@ -17,9 +17,22 @@ document.addEventListener("DOMContentLoaded", () => {
       body: json,
       headers: { "Content-type": "application/json; charset=utf-8" },
     }).then((response) => {
-      console.log(response);
       if (response.ok) {
-        console.log("Inicio de sesión exitoso");
+        response.json().then((data) => {
+          if (data.username && data.password) {
+            // Guardar datos del usuario en el localStorage
+            if (!localStorage.getItem("username") || !localStorage.getItem("password")) {              
+              localStorage.setItem("username", data.username);
+              localStorage.setItem("password", data.password);
+              console.log("Datos del usuario guardados en localStorage");
+            }
+          }
+
+          if (data.redirect) {
+            window.location.href = data.redirect;
+          }
+
+        });
         // Redirigir o mostrar mensaje de éxito
       } else {
         console.log("Error en el inicio de sesión");
@@ -28,3 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+
+

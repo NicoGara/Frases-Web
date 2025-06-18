@@ -5,6 +5,8 @@ const cFrases={
     prueba:()=>{ mFrases.getAll()},
     getOne:async (req,res)=>{
         try {
+      console.log(req.session);
+
             const frases=await mFrases.getOne()
             res.status(200).json(frases)
         } catch (error) {
